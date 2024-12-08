@@ -11,7 +11,7 @@ app.get("/hello", (c) => {
   });
 });
 
-app.get("/task/:taskId", (c) => {
+app.get("/tasks/:taskId", (c) => {
   const { taskId } = c.req.param();
   return c.json({
     taskId,
