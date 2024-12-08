@@ -1,4 +1,4 @@
-import RegisterCard from "@/app/features/auth/components/register-card";
+import RegisterCard from "@/features/auth/components/register-card";
 
 const RegisterPage = () => {
   return <RegisterCard />;

@@ -16,23 +16,21 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Link from "next/link";
-
-const loginFormSchema = z.object({
-  email: z.string().email(),
-  password: z.string(),
-});
+import { loginSchema } from "../schemas";
+import { useLogin } from "../api/use-login";
 
 const LoginCard = () => {
-  const form = useForm<z.infer<typeof loginFormSchema>>({
-    resolver: zodResolver(loginFormSchema),
+  const { mutate } = useLogin();
+  const form = useForm<z.infer<typeof loginSchema>>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
       password: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof loginFormSchema>) => {
-    console.log({ values });
+  const onSubmit = (values: z.infer<typeof loginSchema>) => {
+    mutate({ json: values });
   };
   return (
     <Card className="h-full w-full border-none shadow-none md:w-[487px]">
