@@ -1,11 +1,12 @@
 import { cookies } from "next/headers";
 import { Account, Client } from "node-appwrite";
 import { AUTH_COOKIE } from "./constants";
+import { APPWRITE_ENDPOINT, PROJECT_ID } from "@/config/env";
 export const getCurrent = async () => {
   try {
     const client = new Client()
-      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
-      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!);
+      .setEndpoint(APPWRITE_ENDPOINT)
+      .setProject(PROJECT_ID);
 
     const session = (await cookies()).get(AUTH_COOKIE);
 

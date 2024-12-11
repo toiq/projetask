@@ -1,0 +1,10 @@
+export const APP_URL = process.env.NEXT_PUBLIC_APP_URL!;
+export const APPWRITE_ENDPOINT = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!;
+export const PROJECT_ID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!;
+export const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
+export const WORKSPACES_ID = process.env.NEXT_PUBLIC_APPWRITE_WORKSPACES_ID!;
+export const APPWRITE_KEY = process.env.NEXT_PUBLIC_APPWRITE_KEY!;
+export const IMAGES_BUCKET_ID =
+  process.env.NEXT_PUBLIC_APPWRITE_IMAGES_BUCKET_ID!;
+export const MEMBERS_ID = process.env.NEXT_PUBLIC_APPWRITE_MEMBERS_ID!;
+export const TASKS_ID = process.env.NEXT_PUBLIC_APPWRITE_TASKS_ID!;
