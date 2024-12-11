@@ -1,5 +1,4 @@
 "use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { createWorkspaceSchema } from "../schemas";
@@ -14,9 +13,6 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { ImageIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useCreateWorkspace } from "../api/use-create-workspace";
@@ -37,19 +33,26 @@ const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
     },
   });
 
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+
+    if (file) {
+      form.setValue("image", file);
+    }
+  };
+
   const onSubmit = (values: z.infer<typeof createWorkspaceSchema>) => {
-    console.log({ values });
     const finalValues = {
       ...values,
-      image: values.image instanceof File ? values.image : "",
+      image: values.image instanceof File ? values.image : undefined,
     };
 
     mutate(
-      { json: finalValues },
+      { form: finalValues },
       {
         onSuccess: ({ data }) => {
-          form.reset();
-          router.push(`/workspaces/${data.$id}`);
+          //   form.reset();
+          //   router.push(`/workspaces/${data.$id}`);
         },
       },
     );
@@ -81,7 +84,7 @@ const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                 )}
               />
 
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="image"
                 render={({ field }) => (
@@ -107,7 +110,7 @@ const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                           </AvatarFallback>
                         </Avatar>
                       )}
-                      {/* <div className="flex flex-col">
+                      <div className="flex flex-col">
                         <p className="text-sm">Workspace Icon</p>
                         <p className="text-sm text-muted-foreground">
                           JPG, PNG, SVG, JPEG, max 1mb
@@ -124,7 +127,7 @@ const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                           <Button
                             type="button"
                             disabled={isPending}
-                            size="xs"
+                            size="sm"
                             variant="destructive"
                             className="mt-2 w-fit"
                             onClick={() => {
@@ -148,14 +151,13 @@ const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                             Upload Image
                           </Button>
                         )}
-                      </div> */}
+                      </div>
                     </div>
                   </div>
                 )}
-              />
+              /> */}
             </div>
-            <Separator className="py-7" />
-            <div className="flex items-center justify-between">
+            <div className="mt-2 flex items-center justify-between">
               <Button
                 type="button"
                 size="lg"
