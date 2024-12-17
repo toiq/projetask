@@ -18,7 +18,7 @@ import { useCreateWorkspace } from "../api/use-create-workspace";
 import { cn } from "@/lib/utils";
 
 interface CreateWorkspaceFormProps {
-  onCancel: () => void;
+  onCancel?: () => void;
 }
 const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
   const router = useRouter();
@@ -51,7 +51,7 @@ const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
       {/* <div className="px-7">
         <Separator />
       </div> */}
-      <CardContent className="px-7 py-2">
+      <CardContent className="p-7 pt-0">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-y-4">
@@ -69,16 +69,18 @@ const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
               />
             </div>
             <div className="mt-4 flex items-center justify-between">
-              <Button
-                type="button"
-                size="lg"
-                variant="secondary"
-                onClick={onCancel}
-                disabled={isPending}
-                className={cn(!onCancel && "invisible")}
-              >
-                Cancel
-              </Button>
+              {onCancel && (
+                <Button
+                  type="button"
+                  size="lg"
+                  variant="secondary"
+                  onClick={onCancel}
+                  disabled={isPending}
+                  className={cn(!onCancel && "invisible")}
+                >
+                  Cancel
+                </Button>
+              )}
 
               <Button type="submit" size="lg" disabled={isPending}>
                 Create Workspace
