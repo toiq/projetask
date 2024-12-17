@@ -126,7 +126,7 @@ const RegisterCard = () => {
           onClick={() => {}}
         >
           <FcGoogle className="mr-2 size-5" />
-          Login with Google
+          Continue with Google
         </Button>
 
         <Button
@@ -137,7 +137,7 @@ const RegisterCard = () => {
           onClick={() => {}}
         >
           <FaGithub className="mr-2 size-5" />
-          Login with Github
+          Continue with Github
         </Button>
       </CardContent>
 
