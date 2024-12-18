@@ -10,7 +10,7 @@ import {
   GoHome,
   GoHomeFill,
 } from "react-icons/go";
-// import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
+import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 
 const routes = [
   { label: "Home", href: "", icon: GoHome, activeIcon: GoHomeFill },
@@ -35,7 +35,7 @@ const routes = [
 ];
 
 const Navigation = () => {
-  const workspaceId = null;
+  const workspaceId = useWorkspaceId();
   const pathname = usePathname();
 
   return (
