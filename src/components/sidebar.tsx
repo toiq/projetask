@@ -3,6 +3,7 @@ import Logo from "./logo";
 import { Separator } from "@radix-ui/react-separator";
 import Navigation from "./navigation";
 import { WorkspaceSwitcher } from "./workspace-switcher";
+import Projects from "./projects";
 
 const Sidebar = () => {
   return (
@@ -14,6 +15,8 @@ const Sidebar = () => {
       <WorkspaceSwitcher />
       <Separator className="my-4" />
       <Navigation />
+      <Separator className="my-4" />
+      <Projects />
     </aside>
   );
 };
