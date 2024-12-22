@@ -21,7 +21,7 @@ const WorkspaceAvatar = ({ name, className, image }: WorkspaceAvatarProps) => {
 
   return (
     <Avatar className={cn("size-5 rounded-md", className)}>
-      <AvatarFallback className="rounded-full bg-emerald-700 text-lg font-semibold uppercase text-white">
+      <AvatarFallback className="rounded-full bg-emerald-700 text-xs font-semibold uppercase text-white">
         {name[0]}
       </AvatarFallback>
     </Avatar>
