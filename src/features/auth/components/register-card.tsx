@@ -26,7 +26,7 @@ import { registerSchema } from "../schemas";
 import { useRegister } from "../api/use-register";
 
 const RegisterCard = () => {
-  const { mutate } = useRegister();
+  const { mutate, isPending } = useRegister();
   const form = useForm({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -98,7 +98,7 @@ const RegisterCard = () => {
                 </FormItem>
               )}
             />
-            <Button disabled={false} className="w-full font-semibold">
+            <Button disabled={isPending} className="w-full font-semibold">
               Register
             </Button>
           </form>
@@ -122,7 +122,7 @@ const RegisterCard = () => {
           variant="outline"
           size="lg"
           className="w-full"
-          disabled={false}
+          disabled={isPending}
           onClick={() => {}}
         >
           <FcGoogle className="mr-2 size-5" />
@@ -133,7 +133,7 @@ const RegisterCard = () => {
           variant="outline"
           size="lg"
           className="w-full"
-          disabled={false}
+          disabled={isPending}
           onClick={() => {}}
         >
           <FaGithub className="mr-2 size-5" />
