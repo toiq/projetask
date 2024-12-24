@@ -17,6 +17,10 @@ import useBulkUpdateTask from "../api/use-bulk-update-task";
 import useCreateTaskModal from "../hooks/use-create-task-modal";
 import { Separator } from "@/components/ui/separator";
 import DataFilters from "./data-filters";
+import { DataTable } from "./data-table";
+import { columns } from "./columns";
+import { DataKanban } from "./data-kanban";
+import { DataCalendar } from "./calendar/data-calendar";
 
 interface TaskViewSwticherProps {
   hideProjectFilter?: boolean;
@@ -88,18 +92,18 @@ export const TaskViewSwticher = ({
         ) : (
           <>
             <TabsContent value="table" className="mt-0">
-              {/* <DataTable columns={columns} data={tasks?.documents ?? []} /> */}
+              <DataTable columns={columns} data={tasks?.documents ?? []} />
             </TabsContent>
 
             <TabsContent value="kanban" className="mt-0">
-              {/* <DataKanban
+              <DataKanban
                 data={tasks?.documents ?? []}
                 onChange={onKanbanChange}
-              /> */}
+              />
             </TabsContent>
 
             <TabsContent value="calendar" className="mt-0 h-full pb-4">
-              {/* <DataCalendar data={tasks?.documents ?? []} /> */}
+              <DataCalendar data={tasks?.documents ?? []} />
             </TabsContent>
           </>
         )}
