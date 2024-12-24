@@ -76,8 +76,7 @@ export const TaskViewSwticher = ({
             className="w-full lg:w-auto"
             onClick={() => open(undefined)}
           >
-            <PlusIcon className="mr-2 size-4" />
-            New
+            <PlusIcon className="size-4" />
           </Button>
         </div>
 

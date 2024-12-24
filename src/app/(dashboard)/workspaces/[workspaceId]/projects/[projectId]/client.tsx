@@ -34,7 +34,7 @@ export const ProjectIdClient = () => {
           <ProjectAvatar
             name={project.name}
             image={project.imageUrl}
-            className="size-8"
+            className="size-6"
           />
           <p className="text-lg font-semibold">{project.name}</p>
         </div>
@@ -44,8 +44,7 @@ export const ProjectIdClient = () => {
             <Link
               href={`/workspaces/${project.workspaceId}/projects/${project.$id}/settings`}
             >
-              <PencilIcon className="mr-2 size-4" />
-              Edit Project
+              <PencilIcon className="size-6" />
             </Link>
           </Button>
         </div>
