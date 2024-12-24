@@ -6,7 +6,7 @@ import members from "@/features/members/server/route";
 import projects from "@/features/projects/server/route";
 import tasks from "@/features/tasks/server/route";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 const app = new Hono().basePath("/api");
 
