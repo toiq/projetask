@@ -11,6 +11,7 @@ import ProjectAvatar from "@/features/projects/components/project-avatar";
 import { Button } from "@/components/ui/button";
 import PageError from "@/components/page-error";
 import PageLoader from "@/components/page-loader";
+import { TaskViewSwticher } from "@/features/tasks/components/task-view-switcher";
 
 export const ProjectIdClient = () => {
   const projectId = useProjectId();
@@ -49,7 +50,7 @@ export const ProjectIdClient = () => {
           </Button>
         </div>
       </div>
-      {/* <TaskViewSwticher /> */}
+      <TaskViewSwticher />
     </div>
   );
 };
