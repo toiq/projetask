@@ -80,7 +80,7 @@ export const TaskList = ({ data, total }: TaskListProps) => {
             <PlusIcon className="size-4 text-neutral-400" />
           </Button>
         </div>
-        <ul className="flex flex-col gap-y-4">
+        <ul className="mt-3 flex flex-col gap-y-4">
           {data.map((task) => (
             <li key={task.$id}>
               <Link href={`/workspaces/${workspaceId}/tasks/${task.$id}`}>
@@ -107,7 +107,7 @@ export const TaskList = ({ data, total }: TaskListProps) => {
             No tasks found
           </li>
         </ul>
-        <Button variant="ghost" className="mt-4 w-full" asChild>
+        <Button variant="outline" className="mt-4 w-full" asChild>
           <Link href={`/workspaces/${workspaceId}/tasks`}>Show All</Link>
         </Button>
       </div>
@@ -125,7 +125,7 @@ export const ProjectList = ({ data, total }: ProjectListProps) => {
   const { open } = useCreateProjectModal();
 
   return (
-    <div className="col-span-1 flex flex-col gap-y-4">
+    <div className="col-span-1 flex min-h-20 flex-col gap-y-4">
       <div className="rounded-lg border bg-white p-4">
         <div className="flex items-center justify-between">
           <p className="text-lg font-semibold">Projects ({total})</p>
@@ -133,7 +133,7 @@ export const ProjectList = ({ data, total }: ProjectListProps) => {
             <PlusIcon className="size-4 text-neutral-400" />
           </Button>
         </div>
-        <ul className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <ul className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-2">
           {data.map((project) => (
             <li key={project.$id}>
               <Link href={`/workspaces/${workspaceId}/projects/${project.$id}`}>
@@ -142,12 +142,10 @@ export const ProjectList = ({ data, total }: ProjectListProps) => {
                     <ProjectAvatar
                       name={project.name}
                       image={project.imageUrl}
-                      className="size-12"
-                      fallbackClassname="text-lg"
+                      className="size-6"
+                      fallbackClassname="text-xs"
                     />
-                    <p className="truncate text-lg font-medium">
-                      {project.name}
-                    </p>
+                    <p className="truncate font-medium">{project.name}</p>
                   </CardContent>
                 </Card>
               </Link>

@@ -208,7 +208,7 @@ const EditTaskForm = ({
                 )}
               />
             </div>
-            <div className="flex items-center justify-between">
+            <div className="mt-3 flex items-center justify-between">
               <Button
                 type="button"
                 size="lg"
