@@ -1,16 +1,17 @@
 "use client";
+
 import Link from "next/link";
 import { PencilIcon } from "lucide-react";
 
 import useProjectId from "@/features/projects/hooks/use-project-id";
 import useGetProject from "@/features/projects/api/use-get-project";
 import ProjectAvatar from "@/features/projects/components/project-avatar";
-// import { TaskViewSwticher } from "@/features/tasks/components/task-view-swticher";
-// import { useGetProjectAnalytics } from "@/features/projects/api/use-get-project-analytics";
+import useGetProjectAnalytics from "@/features/projects/api/use-get-project-analytics";
 
 import { Button } from "@/components/ui/button";
 import PageError from "@/components/page-error";
 import PageLoader from "@/components/page-loader";
+import Analytics from "@/components/analytics";
 import { TaskViewSwticher } from "@/features/tasks/components/task-view-switcher";
 
 export const ProjectIdClient = () => {
@@ -18,10 +19,10 @@ export const ProjectIdClient = () => {
   const { data: project, isLoading: isLoadingProject } = useGetProject({
     projectId,
   });
-  //   const { data: analytics, isLoading: isLoadingAnalytics } =
-  //     useGetProjectAnalytics({ projectId });
+  const { data: analytics, isLoading: isLoadingAnalytics } =
+    useGetProjectAnalytics({ projectId });
 
-  const isLoading = isLoadingProject;
+  const isLoading = isLoadingProject || isLoadingAnalytics;
 
   if (isLoading) return <PageLoader />;
 
@@ -34,7 +35,7 @@ export const ProjectIdClient = () => {
           <ProjectAvatar
             name={project.name}
             image={project.imageUrl}
-            className="size-6"
+            className="size-8"
           />
           <p className="text-lg font-semibold">{project.name}</p>
         </div>
@@ -44,11 +45,13 @@ export const ProjectIdClient = () => {
             <Link
               href={`/workspaces/${project.workspaceId}/projects/${project.$id}/settings`}
             >
-              <PencilIcon className="size-6" />
+              <PencilIcon className="mr-2 size-4" />
+              Edit Project
             </Link>
           </Button>
         </div>
       </div>
+      {analytics && <Analytics data={analytics} />}
       <TaskViewSwticher />
     </div>
   );

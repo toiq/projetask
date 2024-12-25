@@ -55,7 +55,6 @@ const app = new Hono()
       let uploadedImageUrl: string | undefined;
 
       if (image instanceof File) {
-        console.log("Yes");
         const file = await storage.createFile(
           IMAGES_BUCKET_ID,
           ID.unique(),

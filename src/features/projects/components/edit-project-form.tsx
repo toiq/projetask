@@ -230,7 +230,7 @@ const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProps) => {
               associated data
             </p>
             <Button
-              size="sm"
+              size="lg"
               type="button"
               variant="destructive"
               className="ml-auto mt-6 w-fit"

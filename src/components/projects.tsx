@@ -19,7 +19,9 @@ const Projects = () => {
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex items-center justify-between">
-        <p className="text-xs uppercase text-neutral-500">Projects</p>
+        <p className="text-xs uppercase text-neutral-500">
+          Projects ({data?.documents.length ?? 0})
+        </p>
         <RiAddCircleFill
           className="size-5 cursor-pointer text-neutral-500 transition hover:opacity-75"
           onClick={open}

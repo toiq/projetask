@@ -70,13 +70,13 @@ const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
 
   return (
     <Card className="h-full w-full border-none shadow-none">
-      <CardHeader className="flex p-7">
+      <CardHeader className="flex p-7 pb-0">
         <CardTitle className="text-xl font-bold">
           Create a new project
         </CardTitle>
       </CardHeader>
 
-      <CardContent className="p-7 pt-0">
+      <CardContent className="p-7 pt-3">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-y-4">
