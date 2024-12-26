@@ -172,7 +172,7 @@ export const DataKanban = ({ data, onChange }: DataKanbanProps) => {
                   <div
                     {...provided.droppableProps}
                     ref={provided.innerRef}
-                    className="h-[550px] overflow-y-auto py-1.5"
+                    className="h-screen overflow-y-auto py-1.5 lg:h-[550px]"
                   >
                     {tasks[board].map((task, index) => (
                       <Draggable

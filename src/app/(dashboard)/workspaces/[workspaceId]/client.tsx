@@ -86,10 +86,10 @@ export const TaskList = ({ data, total }: TaskListProps) => {
               <Link href={`/workspaces/${workspaceId}/tasks/${task.$id}`}>
                 <Card className="rounded-lg shadow-none transition hover:opacity-75">
                   <CardContent className="p-4">
-                    <p className="truncate text-lg font-medium">{task.name}</p>
+                    <p className="truncate font-medium">{task.name}</p>
 
                     <div className="flex items-center gap-x-2">
-                      <p className="">{task.project?.name}</p>
+                      <p className="text-sm">{task.project?.name}</p>
                       <div className="size-1 rounded-full bg-neutral-300" />
                       <div className="flex items-center text-sm text-muted-foreground">
                         <CalendarIcon className="mr-1 size-3" />
